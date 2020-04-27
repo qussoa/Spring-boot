@@ -1,0 +1,27 @@
+<nav>
+	<ul class="pagination"
+		th:with="start=${T(Math).floor(bookList.number/10)*10+1},
+		last=(${start+9 < bookList.totalPages ? 
+			start + 9 : 
+			bookList.totalPages})"
+	>
+		<li class="page-item">
+			<a th:href="@{/book/pageList(page=1)}" class="page-link">처음</a>
+		</li>
+		<li class="page-item" th:class="${bookList.first} ? 'diabled'">
+			<a th:href="@{bookList.first} ? '#' : @{/book/pageList(page=${bookList.number})}" class="page-link">&lt;</a>
+		</li>
+		<li class="page-item"
+			th:class="${page == bookList.number +1} ? 'active'"
+			th:each="page:${#numbers.sequence(start,last)}">
+			<a th:href="@{/book/pageList(page=${page})}" th:text="${page}" class="page-link"></a>
+		</li>
+		<li class="page-item" th:class="${bookList.first} ? 'diabled'">
+			<a th:href="@{bookList.first} ? '#' : @{/book/pageList(page=${bookList.number})}" class="page-link">&gt;</a>
+		</li>		
+		<li class="page-item">
+			<a th:href="@{/book/pageList(page=${bookList.totalPages})}" class="page-link">끝</a>
+		</li>
+	</ul>
+</nav>
+</body>
