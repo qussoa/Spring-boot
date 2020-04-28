@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="head"></th:block>
+</head>
+<body>
+	<h2>BOOK REGISTER</h2>
+	<form method="POST" th:object="${book}" >
+		<div>
+			<label for="title">TITLE</label>
+			<input th:field=*{title}>
+		</div>
+		<div>
+			<label  for="comp">PUBLISHER</label>
+			<input th:field=*{comp}>
+		</div>
+		<div>
+			<label  for="auth">AUTHOR</label>
+			<input th:field=*{auth}>
+		</div>
+		<div>
+			<label  for="year">PUBLISHER YEAR</label>
+			<input th:field=*{year}>
+		</div>
+		<div>
+			<label  for="price">PRICE</label>
+			<input th:field=*{price}>
+		</div>
+		<div>
+			<button>INSERT</button>
+		</div>
+	</form>
+</body>
+</html>

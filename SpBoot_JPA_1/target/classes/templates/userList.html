@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="listHead">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+
+<style>
+table {
+	border: 1px solid #CBA6C3;
+	border-collapse: collapse;
+	width: 90%;
+	margin: 10px auto;
+}
+
+td, th {
+	white-space: nowrap;
+	border: 1px solid #CBA6C3;
+}
+
+.text-color {
+	color: #353866;
+	align-items: center;
+	text-align: center;
+}
+
+.bg-color {
+	background-color: #CBA6C3;
+	color: #F8FAFF;
+	text-align: center;
+}
+
+.btn-color {
+	border: 1px solid #CBA6C3;
+	background-color: rgba(0, 0, 0, 0);
+	color: #CBA6C3;
+	
+}
+
+.btn-color:hover {
+	color: #F8FAFF;
+	background-color: #CBA6C3;
+}
+</style>
+<script>
+	$(function() {
+		$(document).on("click", "#btn-insert", function() {
+			document.location.href = "/user/insert"
+		})
+
+		$(document).on("click", ".u_tr", function() {
+			let id = $(this).data("user-id")
+			document.location.href="/user/update?id=" +id
+		})
+	})
+</script>
+</head>
+<body th:fragment="listBody">
+	<h2 class="text-color">MEMBET LIST</h2>
+	<table>
+		<tr class="bg-color">
+			<th>이름</th>
+			<th>EMAIl</th>
+			<th>전화번호</th>
+			<th>주소</th>
+			<th>비고</th>
+		</tr>
+		<tr th:each="user : ${userList}" class="text-color"  
+		th:data-user-id="${user.id}">
+			<td th:text="${user.username}" class="u_tr"
+			th:attr="data-user-id=${user.id}">이름</td>
+			<td th:text="${user.email}">EMAIl</td>
+			<td th:text="${user.phone}">전화번호</td>
+			<td th:text="${user.address}">주소</td>
+			<td th:data-user-id=${user.id}>
+			<a th:href="@{/user/delete(id=${user.id})}">삭제</a></td>
+		</tr>
+	</table>
+	<div class="justify-content-center">
+	<button id="btn-insert" class="btn-color">MEMEBER 등록</button>
+	</div>
+</body>
+</html>

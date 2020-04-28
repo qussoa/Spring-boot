@@ -34,7 +34,7 @@ public class BookController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String hello() {
-		return "redirect:/book/list";
+		return "redirect:/book/pagelist";
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)

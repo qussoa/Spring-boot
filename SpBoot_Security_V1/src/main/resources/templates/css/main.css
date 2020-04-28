@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.big-box{
+
+}
+.text-color {
+	color: #60c5ba;
+	text-align: center;
+}
+
+.input-color {
+	color: #ef5285;
+	font-weight: bold;
+}
+
+.btn-color {
+	border: 1px solid #60c5ba;
+	background-color: rgba(0, 0, 0, 0);
+	color: #60c5ba;
+	width: 100px;
+	height: 30px;
+}
+
+.btn-color:hover {
+	color: #60c5ba;
+	background-color: #a5dff9;
+}
