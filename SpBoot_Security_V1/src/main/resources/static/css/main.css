@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
-.big-box{
-
-}
 .text-color {
 	color: #60c5ba;
 	text-align: center;
+	font-weight: bold;
 }
 
 .input-color {
 	color: #ef5285;
 	font-weight: bold;
+	text-align: center;
 }
 
 .btn-color {
@@ -24,4 +23,10 @@
 .btn-color:hover {
 	color: #60c5ba;
 	background-color: #a5dff9;
+}
+
+footer{
+	background-color: #d9e1e8;
+	color:#60c5ba;
+	text-align: center;
 }
