@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:include="include/head" />
+<script>
+$(function(){
+	$(document).on("blur","#username",function(){
+		let id = $(this).val()
+		if(id == ""){
+			$("#m_username").html("<b> USERNAME 반드시 입력</b>")
+		}
+	})
+})
+
+</script>
+</head>
+<body>
+<H2>JOIN</H2>
+	<th:block th:replace="include/layout :: nav" />
+	<form th:object="${userVO}" th:action="@{/user/join}" method="POST">
+		<div>
+			<label for="username">USERNAME</label> 
+			<input th:field="*{username}"
+				placeholder="USERNAME">
+				<div id="m_username"></div>
+		</div>
+		<div>
+			<label for="password">PASSWORD</label> 
+			<input th:field="*{password}"
+				placeholder="PASSWORD" type="password">
+		</div>
+		<div>
+			<label for="re_password">RE_PASSWORD</label>
+			 <input
+				name="re_password" id="re_password" placeholder="RE_PASSWORD"
+				type="password">
+		</div>
+		<div>
+			<label for="email">EMAIL</label> 
+			<input th:field="*{email}"
+				placeholder="EMAIL">
+		</div>
+		<div>
+			<button>JOIN</button>
+			<button type="button">YOU FORGOT YOUR PASSWORD?</button>
+		</div>
+	</form>
+	<th:block th:replace="include/layout :: footer" />
+</body>
+</html>
