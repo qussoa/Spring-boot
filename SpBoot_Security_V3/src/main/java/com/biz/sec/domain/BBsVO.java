@@ -1,15 +1,11 @@
 package com.biz.sec.domain;
 
-import java.util.Collection;
-import java.util.Set;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +31,7 @@ public class BBsVO {
 	private String bbsDate;
 	private String bbsTitle;
 	private String bbsAuth;
+	@Column(length = 2000)
 	private String bbsText;
 
 }
